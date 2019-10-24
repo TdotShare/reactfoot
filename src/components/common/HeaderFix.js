@@ -9,10 +9,11 @@ export default class HeaderFix extends Component {
             <View>
                 <Header>
                     <Left>
-                        {/* <Button transparent>
-                            <Icon name='arrow-back' />
-                        </Button> */}
-
+                        {this.props.icon_left ?
+                            <TouchableOpacity onPress={this.props.onpress_left}>
+                                <Icon name={this.props.icon_left} style={{ color: '#ffffff'}} />
+                            </TouchableOpacity> : null
+                        }
                     </Left>
                     <Body>
                         <Title>{this.props.title}</Title>

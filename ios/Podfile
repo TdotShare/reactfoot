@@ -33,6 +33,8 @@ target 'reactfoot' do
 
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
+  pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
+
   target 'reactfootTests' do
     inherit! :search_paths
     # Pods for testing
