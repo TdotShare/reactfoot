@@ -1,25 +1,11 @@
-const primaryColor = "#b1683b";
-const secondaryColor = "#e8b84a";
 const textWhite = "white";
-const font =  'Kanit-Regular';
-const barColor = '#ffdd59';
-const headerColor="#ffffff";
-const headerFontSize = 12;
-const paddingHeader = 10;
-const greenColorBtn = "#2ed573";
-const buleColorBtn = "#3742fa";
-const fontSize = 16;
+const textBlack = "#000000";
+const font_normalSize = 16;
+const font_titleSize = 18;
 
 export default {
-    buleColorBtn,
-    greenColorBtn,
-    primaryColor,
-    secondaryColor,
+    font_normalSize,
+    font_titleSize,
     textWhite,
-    font,
-    barColor,
-    headerColor,
-    headerFontSize,
-    paddingHeader,
-    fontSize
+    textBlack
 }
