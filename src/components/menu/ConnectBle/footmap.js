@@ -19,13 +19,13 @@ export default class Footmap extends Component {
     height: new Animated.Value(0),
     mockupValue: '104,0,0,0,0,64|',
     colorFootRed: 'red',
-    colorFootBlack: '231f20',
+    colorFootBlack: '23b1f20',
     sersor_l_all: [{ value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },],
-    sersor_r_all: [{ value: 255, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
+    sersor_r_all: [{ value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
     { value: 0, color: 'red', colorAnimated: new Animated.Value(0), size: new Animated.Value(0) },
@@ -112,7 +112,7 @@ export default class Footmap extends Component {
       console.log(this.state.sersor_l_all)
 
       //if (this.state.touchFoot_L) {
-        this.startAnimationL()
+      this.startAnimationL()
       //}
 
     })
@@ -149,7 +149,7 @@ export default class Footmap extends Component {
 
       console.log(this.state.sersor_r_all)
       //if (this.state.touchFoot_R) {
-        this.startAnimationR()
+      this.startAnimationR()
       //}
 
     })
@@ -237,23 +237,61 @@ export default class Footmap extends Component {
   ColorAnimat_r = (index) => {
 
     let sersor = this.state.sersor_r_all[index]
+    let cool = sersor.value
+    let shot = "";
+    if(cool > 650){
+      shot = `rgb(0,255,12)`;
+    }else if(cool > 550){
+      shot = `rgb(0,239,11)`;
+    }else if(cool > 450){
+      shot = `rgb(0,188,9)`;
+    }else if(cool > 350){
+      shot = `rgb(0,132,6)`;
+    }else if(cool > 250){
+      shot = `rgb(0,101,5)`;
+    }else if(cool > 150){
+      shot = `rgb(0,75,3)`;
+    }else{
+      shot = `rgb(0,0,0)`;
+    }
 
-    return sersor.colorAnimated.interpolate({
-      inputRange: [0, 1],
-      //outputRange: ['rgb(0,0,0)', `rgb(${sersor.value},0,0)`],
-      outputRange: ['rgb(35,31,32)', `rgb(0,${sersor.value},0)`],
-    })
+    return shot;
+
+    // return sersor.colorAnimated.interpolate({
+    //   inputRange: [0, 1],
+    //   //outputRange: ['rgb(0,0,0)', `rgb(${sersor.value},0,0)`],
+    //   outputRange: ['rgb(0,0,0)', `rgb(0,${sersor.value},0)`],
+    // })
   }
 
   ColorAnimat_l = (index) => {
 
     let sersor = this.state.sersor_l_all[index]
+    let cool = sersor.value
+    let shot = "";
+    if(cool > 650){
+      shot = `rgb(0,255,12)`;
+    }else if(cool > 550){
+      shot = `rgb(0,239,11)`;
+    }else if(cool > 450){
+      shot = `rgb(0,188,9)`;
+    }else if(cool > 350){
+      shot = `rgb(0,132,6)`;
+    }else if(cool > 250){
+      shot = `rgb(0,101,5)`;
+    }else if(cool > 150){
+      shot = `rgb(0,75,3)`;
+    }else{
+      shot = `rgb(0,0,0)`;
+    }
 
-    return sersor.colorAnimated.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['rgb(35,31,32)', `rgb(0,${sersor.value},0)`],
-      //outputRange: ['rgb(0,0,0)', `rgb(${sersor.value},0,0)`],
-    })
+    return shot;
+
+    // return sersor.colorAnimated.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: ['rgb(35,31,32)', shot],
+    //   //outputRange: ['rgb(0,0,0)', `rgb(${sersor.value},0,0)`],
+    // })
   }
 
   SizeAnimat_r = (index) => {
@@ -330,12 +368,39 @@ export default class Footmap extends Component {
 
               <Image
                 style={{ width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 10, top: '10%', }}
-                source={require('../../../assets/images/foot-left.png')}
+                source={require('../../../assets/images/left.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_l(4), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 10, top: '10%' }}
+                source={require('../../../assets/images/ll/l1.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_l(3), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 10, top: '10%' }}
+                source={require('../../../assets/images/ll/l2.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_l(2), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 10, top: '10%' }}
+                source={require('../../../assets/images/ll/l3.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_l(1), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 10, top: '10%' }}
+                source={require('../../../assets/images/ll/l4.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_l(0), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 10, top: '10%' }}
+                source={require('../../../assets/images/ll/l5.png')}
               />
 
               <View style={{ padding: 50, top: '10%' }}>
 
-                <Row style={{ height: '12%' }}>
+                { /*
+
+              <Row style={{ height: '12%' }}>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
@@ -352,8 +417,8 @@ export default class Footmap extends Component {
                 </Row>
 
                 <Row style={{ height: '7%', right: '4%' }}>
-                  <Animated.View style={{ margin: 2, height: this.SizeAnimat_l(1), width: this.SizeAnimat_l(1), borderRadius: 100 / 2, backgroundColor: this.ColorAnimat_l(1) }}></Animated.View>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
+                  <Animated.View style={{ margin: 2, height: this.SizeAnimat_l(1), width: this.SizeAnimat_l(1), borderRadius: 100 / 2, backgroundColor: this.ColorAnimat_l(1) }}></Animated.View>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
                   <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
@@ -416,6 +481,12 @@ export default class Footmap extends Component {
                 </Row>
 
 
+                */
+                }
+
+
+
+
               </View>
             </View>
           </Col>
@@ -425,17 +496,40 @@ export default class Footmap extends Component {
 
               <Image
                 style={{ width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 15, top: '10%' }}
-                source={require('../../../assets/images/foot-right.png')}
+                source={require('../../../assets/images/right.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_r(4), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 15, top: '10%' }}
+                source={require('../../../assets/images/rr/r1.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_r(3), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 15, top: '10%' }}
+                source={require('../../../assets/images/rr/r2.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_r(2), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 15, top: '10%' }}
+                source={require('../../../assets/images/rr/r3.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_r(0), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 15, top: '10%' }}
+                source={require('../../../assets/images/rr/r4.png')}
+              />
+
+              <Animated.Image
+                style={{ tintColor: this.ColorAnimat_r(1), width: '90%', height: '55%', resizeMode: 'stretch', position: 'absolute', left: 15, top: '10%' }}
+                source={require('../../../assets/images/rr/r5.png')}
               />
 
               <View style={{ padding: 50, top: '10%' }}>
 
+                {/*
+
                 <Row style={{ height: '12%' }}>
-                  {/* <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
-                  <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
-                  <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
-                  <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View>
-                  <View style={{ margin: 2, height: 15, width: 15, backgroundColor: this.state.colorFootBlack }}></View> */}
+                 
                 </Row>
 
                 <Row style={{ height: '7%' }}>
@@ -510,6 +604,7 @@ export default class Footmap extends Component {
                   <View style={{ margin: 2, height: 15, width: 15, }}></View>
                 </Row>
 
+                */}
 
               </View>
             </View>

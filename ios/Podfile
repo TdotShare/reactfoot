@@ -27,13 +27,16 @@ target 'reactfoot' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
 
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
   pod 'react-native-ble-plx', :path => '../node_modules/react-native-ble-plx'
+  pod 'react-native-ble-plx-swift', :path => '../node_modules/react-native-ble-plx'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
   target 'reactfootTests' do
     inherit! :search_paths
