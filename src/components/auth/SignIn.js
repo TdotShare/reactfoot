@@ -10,6 +10,7 @@ export default class SingIn extends Component {
 
     actionSignln = () => {
         alert('test !')
+        //actionSignln
     }
 
     render() {
